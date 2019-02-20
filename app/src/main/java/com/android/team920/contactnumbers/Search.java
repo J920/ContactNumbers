@@ -14,7 +14,6 @@ import android.widget.Button;
 
 public class Search extends Fragment {
 
-Button add;
 
     public Search() {
         // Required empty public constructor
@@ -46,7 +45,6 @@ Button add;
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        add = view.findViewById(R.id.addButton);
-        add.setText("اقترح رقم");
+
     }
 }
