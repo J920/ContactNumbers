@@ -34,6 +34,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView name, suggName, num;
         public CardView cardView;
+        public CardView oneHandCardView;
         public Button call;
         ImageView copyImg;
 
@@ -43,6 +44,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
             suggName = (TextView) view.findViewById(R.id.sugg_name);
             num = (TextView) view.findViewById(R.id.number);
             cardView = (CardView) view.findViewById(R.id.card_view);
+            oneHandCardView = (CardView) view.findViewById(R.id.one_hand_card_view);
+
             call = (Button) view.findViewById(R.id.call);
 
 
@@ -59,19 +62,32 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
     @Override
     public Adapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View numView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.card_design, parent, false);
+        if (Search.first!=false) {
+            View numView = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.card_design, parent, false);
 
-        return new MyViewHolder(numView);
+            return new MyViewHolder(numView);
+        }else{
+            View numView1 = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.one_hand_use, parent, false);
+
+
+            return new MyViewHolder(numView1);
+
+
+
+        }
+
     }
 
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        final Contact contact = numbersList.get(position);
-        holder.name.setText(contact.getName());
-        holder.suggName.setText(contact.getSuggName());
-        holder.num.setText(contact.getNumber());
+        if (Search.first!=false) {
+            final Contact contact = numbersList.get(position);
+            holder.name.setText(contact.getName());
+            holder.suggName.setText(contact.getSuggName());
+            holder.num.setText(contact.getNumber());
 
 
 //        FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
@@ -82,10 +98,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 //            @Override
 //            public void onSuccess(Uri uri) {
 //                Picasso.get().load(uri).fit().centerCrop().into(holder.thumbnail);
-        //     }
-        // });
+            //     }
+            // });
 
-        // loading album cover using Glide library
+            // loading album cover using Glide library
 //        Glide.with(mContext).load(item.getImages().get(0)).into(holder.thumbnail);
 
 
@@ -103,15 +119,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 //        });
 
 
-        holder.call.setOnClickListener(new View.OnClickListener() {
+            holder.call.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View view) {
+                @Override
+                public void onClick(View view) {
 
 
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:" + holder.num.getText().toString()));
-                mContext.startActivity(intent);
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:" + holder.num.getText().toString()));
+                    mContext.startActivity(intent);
 
 //                if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
 //                    // TODO: Consider calling
@@ -125,42 +141,45 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 //                    return;
 //                }
 
-            }
-        });
+                }
+            });
 
 
-        holder.num.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            holder.num.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
 
-                ClipboardManager cm = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
-                cm.setText(holder.num.getText().toString());
-                Toast.makeText(mContext, "تم النسخ إلى الحافظة", Toast.LENGTH_SHORT).show();
+                    ClipboardManager cm = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+                    cm.setText(holder.num.getText().toString());
+                    Toast.makeText(mContext, "تم النسخ إلى الحافظة", Toast.LENGTH_SHORT).show();
 
 
-            }
+                }
 
 
-        });
+            });
 
 
-        holder.copyImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            holder.copyImg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
 
-                ClipboardManager cm = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
-                cm.setText(holder.num.getText().toString());
-                Toast.makeText(mContext, "تم النسخ إلى الحافظة", Toast.LENGTH_SHORT).show();
+                    ClipboardManager cm = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+                    cm.setText(holder.num.getText().toString());
+                    Toast.makeText(mContext, "تم النسخ إلى الحافظة", Toast.LENGTH_SHORT).show();
 
 
-            }
+                }
 
 
-        });
+            });
 
+        }else{
+            Search.first =true;
 
+        }
     }
 
     @Override

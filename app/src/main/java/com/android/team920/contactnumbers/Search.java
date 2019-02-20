@@ -32,6 +32,7 @@ public class Search extends Fragment {
     RecyclerView recyclerView;
     Adapter adapter;
 
+    static boolean first;
 
     public Search() {
         // Required empty public constructor
@@ -63,6 +64,7 @@ public class Search extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        first=false;
 
         addButton = view.findViewById(R.id.addButton);
 
@@ -86,14 +88,18 @@ public class Search extends Fragment {
         numbersList.add(contact);
         numbersList.add(contact1);
         numbersList.add(contact2);
+        numbersList.add(contact);
+        numbersList.add(contact1);
+        numbersList.add(contact2);
 
         adapter = new Adapter(this.getContext(), numbersList);
 
 
         LinearLayoutManager mLayoutManager = new GridLayoutManager(this.getContext(), 1);
         recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
+       // recyclerView.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(10), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+       // recyclerView.setAdapter(oneHandCardAdapter);
         recyclerView.setAdapter(adapter);
 
 //        GenericTypeIndicator<List<String>> t = new GenericTypeIndicator<List<String>>() {};
@@ -108,9 +114,11 @@ public class Search extends Fragment {
 
         private int spanCount;
         private int spacing;
+        private int size;
         private boolean includeEdge;
 
-        public GridSpacingItemDecoration(int spanCount, int spacing, boolean includeEdge) {
+
+        public GridSpacingItemDecoration(int spanCount, int spacing ,boolean includeEdge) {
             this.spanCount = spanCount;
             this.spacing = spacing;
             this.includeEdge = includeEdge;
@@ -128,7 +136,10 @@ public class Search extends Fragment {
                // if (position < spanCount) { // top edge
                     outRect.top = spacing;
                 //}
+
                 outRect.bottom = spacing; // item bottom
+
+
             } else {
                 outRect.left = column * spacing / spanCount; // column * ((1f / spanCount) * spacing)
                 outRect.right = spacing - (column + 1) * spacing / spanCount; // spacing - (column + 1) * ((1f /    spanCount) * spacing)
@@ -136,6 +147,7 @@ public class Search extends Fragment {
                     outRect.top = spacing; // item top
                 //}
             }
+
         }
     }
 
