@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--<item-->
+        <!--android:id="@+id/navigation_sug_num"-->
+        <!--android:icon="@drawable/ic_home_black_24dp"-->
+        <!--android:title="اقتراح رقم" />-->
+
+    <item
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/iconfinder_search_858732"
+        android:title="إبحث" />
+
+    <item
+        android:id="@+id/navigation_fav"
+        android:icon="@drawable/like"
+        android:title="المفضلة" />
+
+</menu>
