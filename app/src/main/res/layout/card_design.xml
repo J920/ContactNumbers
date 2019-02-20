@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:elevation="3dp"
+        card_view:cardCornerRadius="0dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@+id/card_view">
+
+            <!--<TextView-->
+            <!--android:id="@+id/desc"-->
+            <!--android:layout_width="195dp"-->
+            <!--android:layout_height="56dp"-->
+            <!--android:layout_below="@+id/title"-->
+            <!--android:layout_marginEnd="28dp"-->
+            <!--android:layout_marginStart="8dp"-->
+            <!--android:layout_toLeftOf="@+id/thumbnail"-->
+            <!--android:layout_toStartOf="@+id/thumbnail"-->
+            <!--android:paddingBottom="@dimen/songs_count_padding_bottom"-->
+            <!--android:paddingLeft="@dimen/album_title_padding"-->
+            <!--android:paddingRight="@dimen/album_title_padding"-->
+            <!--android:textSize="@dimen/songs_count"-->
+            <!--card_view:layout_constraintBottom_toTopOf="@+id/count"-->
+            <!--card_view:layout_constraintEnd_toStartOf="@+id/thumbnail"-->
+            <!--card_view:layout_constraintHorizontal_bias="1.0"-->
+            <!--card_view:layout_constraintStart_toStartOf="parent" />-->
+
+
+            <!--<TextView-->
+            <!--android:id="@+id/title"-->
+            <!--android:layout_width="108dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_marginBottom="8dp"-->
+            <!--android:layout_marginEnd="8dp"-->
+            <!--android:layout_marginStart="8dp"-->
+            <!--android:layout_marginTop="4dp"-->
+            <!--android:paddingLeft="@dimen/album_title_padding"-->
+            <!--android:paddingRight="@dimen/album_title_padding"-->
+            <!--android:paddingTop="@dimen/album_title_padding"-->
+            <!--android:textColor="@color/album_title"-->
+            <!--android:textSize="@dimen/album_title"-->
+            <!--card_view:layout_constraintBottom_toTopOf="@+id/desc"-->
+            <!--card_view:layout_constraintEnd_toStartOf="@+id/thumbnail"-->
+            <!--card_view:layout_constraintHorizontal_bias="0.85"-->
+            <!--card_view:layout_constraintStart_toEndOf="@+id/overflow"-->
+            <!--card_view:layout_constraintTop_toTopOf="parent"-->
+            <!--card_view:layout_constraintVertical_bias="0.0" />-->
+
+            <Button
+                android:id="@+id/call"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="0dp"
+                android:background="@color/common_google_signin_btn_text_dark_pressed"
+                android:drawableLeft="@drawable/call"
+                android:drawableTint="@color/colorPrimary"
+                android:gravity="center"
+                android:paddingLeft="8dp"
+                android:text="إتصل"
+                android:textColor="@color/colorPrimary"
+                android:textSize="22dp"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:layout_constraintVertical_bias="0.0">
+
+            </Button>
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="موبايلي"
+
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="18dp"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintHorizontal_bias="0.51"
+                card_view:layout_constraintStart_toEndOf="@+id/call"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:layout_constraintVertical_bias="0.34" />
+
+            <TextView
+                android:id="@+id/number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="+96656000000"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:textSize="18dp"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintHorizontal_bias="0.501"
+                card_view:layout_constraintStart_toEndOf="@+id/call"
+                card_view:layout_constraintTop_toBottomOf="@+id/name" />
+
+            <TextView
+                android:id="@+id/sugg_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="مقترح من قبل : احمد محمد"
+                android:textSize="12dp"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/copyImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toStartOf="@+id/number"
+                card_view:layout_constraintHorizontal_bias="1.0"
+                card_view:layout_constraintStart_toEndOf="@+id/call"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:layout_constraintVertical_bias="0.904"
+                card_view:srcCompat="@drawable/copy" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
+
+
