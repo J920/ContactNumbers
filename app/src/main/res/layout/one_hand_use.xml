@@ -6,13 +6,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/common_google_signin_btn_text_dark_pressed">
+
+   >
 
     <android.support.v7.widget.CardView
         android:id="@+id/one_hand_card_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
+
 
         android:elevation="3dp"
         card_view:cardCornerRadius="0dp"
@@ -24,7 +26,8 @@
 
 <android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#fafafa">
 
     <ImageView
         android:id="@+id/imageView"

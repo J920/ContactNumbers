@@ -1,0 +1,134 @@
+<mobile.sarproj.com.swipelayout.SwipeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_layout"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:layout_marginTop="3dp"
+    app:draggedItem="@id/drag_item"
+    app:swipeDirection="right"
+    app:leftItem="@id/left_view"
+    app:isFreeDragAfterOpen="true"
+    app:isTogether="true">
+
+
+    <ImageView
+        android:id="@+id/left_view"
+        android:layout_width="90dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#ff5722"
+        android:gravity="center"
+        android:paddingEnd="24dp"
+        android:paddingStart="24dp"
+        android:src="@drawable/like"
+        />
+
+    <!--<ImageView-->
+        <!--android:id="@+id/right_view"-->
+        <!--android:layout_width="90dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="end"-->
+        <!--android:background="#ff5722"-->
+        <!--android:gravity="center"-->
+        <!--android:paddingEnd="24dp"-->
+        <!--android:paddingStart="24dp"-->
+        <!--android:src="@drawable/iconfinder_add_326505"/>-->
+
+<!--<View-->
+    <!--android:id="@+id/drag_item"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/drag_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff">
+
+        <Button
+            android:id="@+id/call"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+
+            android:background="@color/common_google_signin_btn_text_dark_pressed"
+            android:drawableLeft="@drawable/call"
+            android:drawableTint="@color/colorPrimary"
+            android:gravity="center"
+            android:paddingLeft="8dp"
+            android:text="إتصل"
+            android:textColor="@color/colorPrimary"
+            android:textSize="22dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+        </Button>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginStart="8dp"
+
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toTopOf="@+id/number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.41"
+            app:layout_constraintStart_toEndOf="@+id/call"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.38"
+            app:layout_constraintStart_toEndOf="@+id/call"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.64" />
+
+        <TextView
+            android:id="@+id/sugg_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageView
+            android:id="@+id/copyImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/copy"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/number"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.666" />
+    </android.support.constraint.ConstraintLayout>
+
+<!--</View>-->
+</mobile.sarproj.com.swipelayout.SwipeLayout>

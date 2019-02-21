@@ -30,7 +30,7 @@ public class Search extends Fragment {
     TextView addButton;
     private List<Contact> numbersList;
     RecyclerView recyclerView;
-    Adapter adapter;
+    NewAdapter adapter;
 
     static boolean first;
 
@@ -58,7 +58,13 @@ public class Search extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_search, container, false);
     }
-
+    private List<String> getItems() {
+        List<String> items = new ArrayList<>();
+        for (int i = 0; i < 7; i++) {
+            items.add("item " + i);
+        }
+        return items;
+    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -92,10 +98,10 @@ public class Search extends Fragment {
         numbersList.add(contact1);
         numbersList.add(contact2);
 
-        adapter = new Adapter(this.getContext(), numbersList);
+//        adapter = new Adapter(this.getContext(), numbersList);
+        adapter = new NewAdapter(this.getContext(),numbersList);
 
-
-        LinearLayoutManager mLayoutManager = new GridLayoutManager(this.getContext(), 1);
+                LinearLayoutManager mLayoutManager = new GridLayoutManager(this.getContext(), 1);
         recyclerView.setLayoutManager(mLayoutManager);
        // recyclerView.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(10), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());

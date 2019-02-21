@@ -3,6 +3,7 @@ package com.android.team920.contactnumbers;
 public class Contact {
 
     protected String name,suggName,number;
+    protected boolean like = false;
 
     public Contact(String name,String number){
         this.name=name;
@@ -35,5 +36,13 @@ public class Contact {
 
     public void setNumber(String number) {
         this.number = number;
+    }
+
+    public boolean isLike() {
+        return like;
+    }
+
+    public void setLike(boolean like) {
+        this.like = like;
     }
 }

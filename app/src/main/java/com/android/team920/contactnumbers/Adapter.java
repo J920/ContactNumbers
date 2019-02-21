@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.button.MaterialButton;
 import android.support.v4.app.ActivityCompat;
@@ -23,6 +24,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.List;
 
+import mobile.sarproj.com.swipelayout.SwipeLayout;
+
+import static android.support.v7.widget.RecyclerView.NO_POSITION;
+
+
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
     private Context mContext;
@@ -38,6 +44,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         public Button call;
         ImageView copyImg;
 
+        TextView dragItem;
+        ImageView leftView;
+        TextView rightTextView;
+        SwipeLayout swipeLayout;
+
         public MyViewHolder(View view) {
             super(view);
             name = (TextView) view.findViewById(R.id.name);
@@ -45,6 +56,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
             num = (TextView) view.findViewById(R.id.number);
             cardView = (CardView) view.findViewById(R.id.card_view);
             oneHandCardView = (CardView) view.findViewById(R.id.one_hand_card_view);
+
+//            dragItem = itemView.findViewById(R.id.drag_item);
+//            swipeLayout = itemView.findViewById(R.id.swipe_layout);
+//            leftView = itemView.findViewById(R.id.right_view);
+//            swipeLayout = (SwipeLayout) view.findViewById(R.id.swipe_layout);
+
 
             call = (Button) view.findViewById(R.id.call);
 
@@ -88,6 +105,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
             holder.name.setText(contact.getName());
             holder.suggName.setText(contact.getSuggName());
             holder.num.setText(contact.getNumber());
+
 
 
 //        FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
@@ -175,6 +193,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
 
             });
+
+
+
+
+
+
 
         }else{
             Search.first =true;
