@@ -3,7 +3,9 @@ package com.android.team920.contactnumbers;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.constraint.Group;
 import android.support.v7.widget.CardView;
@@ -188,8 +190,13 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ItemHolder> {
 
     private void addToFav(Context context, int position) {
 
-        Toast.makeText(context, "تمت الإضافة الى المفضلة" + contact.isLike(), Toast.LENGTH_SHORT).show();
-        contact.setLike(true);
+
+
+                contact.setLike(true);
+        Toast.makeText(mContext, "تمت الإضافة الى المفضلة" + contact.isLike(), Toast.LENGTH_SHORT).show();
+
+
+
     }
 
 //    private boolean upload(Context context, int position) {
@@ -260,7 +267,17 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ItemHolder> {
                             if (direction == SwipeLayout.RIGHT) {
                                 if (getAdapterPosition() != NO_POSITION) {
                                     addToFav(itemView.getContext(), getAdapterPosition());
-                                    swipeLayout.close();
+                                    final Handler handler = new Handler();
+                                    handler.postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            // Do something after 5s = 5000ms
+
+
+                                            swipeLayout.close();
+
+                                        }
+                                    }, 600);
                                 }
                             }
                         }
